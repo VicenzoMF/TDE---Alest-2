@@ -70,6 +70,10 @@ function handleMapa(mapa, pontoInicial, row, cols) {
     // DIREITA
     if (direcao === 2) {
       console.log(`[${y}:${x}]: ${mapa[y][x]}`)
+      if(mapa[y][x+1] === "#") {
+        done = true
+        continue
+      }
       if(mapa[y][x+1] === "-") {
         x++
         continue
@@ -144,12 +148,14 @@ function handleMapa(mapa, pontoInicial, row, cols) {
         y++
         incrementarDirecao()
         console.log(direcao)
+        continue
       }
 
       if(mapa[y+1][x] === "\\") {
         y++
         decrementarDirecao()
         console.log(direcao)
+        continue
       }
     }
 
@@ -190,12 +196,14 @@ function handleMapa(mapa, pontoInicial, row, cols) {
         x--
         decrementarDirecao()
         console.log("direção: "+direcao)
+        continue
       }
 
       if(mapa[y][x-1] === "\\") {
         x--
         incrementarDirecao()
         console.log("direção: "+direcao)
+        continue
       }
       
 
@@ -237,13 +245,14 @@ function handleMapa(mapa, pontoInicial, row, cols) {
         y--
         incrementarDirecao()
         console.log(direcao)
-        
+        continue
       }
 
       if(mapa[y-1][x] === "\\") {
         y--
         decrementarDirecao()
         console.log(direcao)
+        continue
       }
       continue
     }
@@ -251,5 +260,6 @@ function handleMapa(mapa, pontoInicial, row, cols) {
 
     done = true
   }
+  
 }
 
